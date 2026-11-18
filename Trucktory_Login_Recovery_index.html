@@ -1,0 +1,261 @@
+<!doctype html>
+<html lang="id"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Trucking Inventory Management System</title><style>
+:root{font-family:Inter,system-ui,-apple-system,Segoe UI,sans-serif;color:#14233d;background:#f3f6fb}*{box-sizing:border-box}body{margin:0}button,input,select,textarea{font:inherit}button{cursor:pointer}button:disabled{opacity:.5;cursor:not-allowed}.hidden{display:none!important}.login{min-height:100vh;display:grid;place-items:center;padding:22px;background:radial-gradient(circle at 20% 10%,#203e70,#0b1930 65%)}.login-card{width:min(440px,100%);background:#fff;padding:32px;border-radius:20px;box-shadow:0 20px 60px #07132555}.brand{display:flex;align-items:center;gap:12px}.logo{background:#1c4b91;color:#fff;padding:12px;border-radius:12px;font-size:24px}.muted{color:#687993;font-size:13px}.login-card h1{font-size:22px;margin:18px 0 5px}.role-choices{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:22px 0}.role-choice{padding:16px;border:1px solid #dce4ef;border-radius:12px;background:#fff;text-align:left}.role-choice.selected{border:2px solid #2766c2;background:#eff6ff}.role-choice strong{display:block;margin-bottom:5px}.field{display:grid;gap:6px;margin:13px 0}.field label{font-weight:600;font-size:13px}.field input,.field select,.field textarea{border:1px solid #d8e1ed;border-radius:9px;padding:11px;background:white;width:100%;color:#14233d}.primary{background:#1d4d96;color:white;border:0;padding:12px 16px;border-radius:10px;font-weight:650}.secondary{background:white;color:#1d4d96;border:1px solid #b7c9e4;padding:11px 15px;border-radius:10px;font-weight:650}.full{width:100%}.layout{display:flex;min-height:100vh}.sidebar{width:248px;flex-shrink:0;background:#102542;color:white;padding:22px 15px}.sidebar .brand{padding:6px 8px 25px}.sidebar .brand strong{font-size:14px}.nav{display:grid;gap:6px}.nav button{background:transparent;border:0;color:#c7d4e9;text-align:left;padding:12px 14px;border-radius:10px;width:100%}.nav button.active,.nav button:hover{background:#264d82;color:#fff}.main{flex:1;min-width:0;padding:25px;max-width:1600px}.top{display:flex;justify-content:space-between;gap:16px;align-items:center;margin-bottom:25px}.top h2{margin:0;font-size:25px}.top p{margin:5px 0 0;color:#64748b}.userbar{display:flex;align-items:center;gap:12px}.pill{font-size:12px;padding:6px 10px;border-radius:99px;background:#e7f0ff;color:#1e4e8c;font-weight:700}.cards{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:15px}.card,.panel{background:white;border:1px solid #e2e8f0;border-radius:14px;padding:19px;box-shadow:0 2px 10px #11213b08}.card .value{font-size:30px;font-weight:800;margin:12px 0 2px}.card .label{color:#65758e;font-size:13px}.panel{margin-top:18px}.panel h3{margin:0 0 15px}.grid2{display:grid;grid-template-columns:1fr 1fr;gap:16px}.grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}.actions{display:flex;gap:9px;flex-wrap:wrap;align-items:end}.table-wrap{overflow:auto}table{width:100%;border-collapse:collapse;min-width:760px}th,td{padding:12px;text-align:left;border-bottom:1px solid #e9edf3;font-size:13px}th{background:#f8fafd;color:#586982;font-weight:750}.tag{display:inline-block;padding:5px 9px;border-radius:20px;font-size:11px;font-weight:800}.tag.in{background:#dff7e9;color:#187747}.tag.out{background:#fff0dc;color:#9b570c}.tag.pending{background:#fff4d6;color:#875c08}.tag.approved{background:#dff7e9;color:#17673d}.tag.rejected{background:#ffe3e3;color:#a12b2b}.empty{padding:30px;text-align:center;color:#78879b}.note{padding:12px 15px;background:#fff6de;border:1px solid #f2dda5;border-radius:10px;color:#76520b;font-size:13px;margin-bottom:18px}.driver-shell{max-width:820px;margin:auto}.driver-hero{background:linear-gradient(120deg,#123465,#2465ae);color:#fff;padding:26px;border-radius:18px}.driver-hero p{color:#dbe8ff}.choice-row{display:grid;grid-template-columns:1fr 1fr;gap:12px}.choice{padding:16px;background:#f5f8fd;border:2px solid transparent;border-radius:12px;text-align:left}.choice.selected{border-color:#2563b8;background:#eaf3ff}.section{display:none}.section.active{display:block}.right{text-align:right}.tiny{font-size:12px;color:#6a7b93}.status{padding:12px;border-radius:10px;margin-top:12px;background:#e7f7ee;color:#14673c}.error{background:#ffebeb;color:#a52a2a}.filter-row{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px}.smallbtn{font-size:12px;padding:7px 9px;border-radius:7px;border:1px solid #c8d5e7;background:#fff;color:#224a80;margin-right:4px}.smallbtn.reject{color:#a82c2c}.mobile-menu{display:none}@media(max-width:1000px){.cards{grid-template-columns:repeat(2,1fr)}.filter-row{grid-template-columns:repeat(2,1fr)}}@media(max-width:700px){.layout{display:block}.sidebar{width:100%;padding:12px}.sidebar .brand{padding:3px 6px}.nav{display:flex;overflow-x:auto}.nav button{white-space:nowrap}.main{padding:16px}.top{align-items:flex-start}.top h2{font-size:21px}.grid2,.grid3{grid-template-columns:1fr}.cards{gap:9px}.card{padding:13px}.card .value{font-size:23px}.filter-row{grid-template-columns:1fr}.login-card{padding:22px}}
+@media print{.sidebar,.top .userbar,.actions,.filters,.note,.no-print{display:none!important}.main{padding:0}.panel{box-shadow:none;border:0}body{background:#fff}table{min-width:0}th,td{font-size:9px;padding:5px}.section{display:none!important}#reports{display:block!important}}
+</style></head><body>
+<div id="login" class="login"><div class="login-card"><div class="brand"><span class="logo">🚚</span><div><strong>TRUCKING INVENTORY</strong><div class="muted">Management System</div></div></div><h1>Login Pengguna</h1><p class="muted">Masuk menggunakan email dan password akun yang terdaftar di Supabase Authentication.</p><form id="loginForm"><div class="field"><label for="loginUsername">Email Supabase</label><input id="loginUsername" type="email" autocomplete="username" placeholder="contoh: driver-trucking@gmail.com" required></div><div class="field"><label for="loginPassword">Password</label><input id="loginPassword" type="password" autocomplete="current-password" placeholder="Masukkan password" required></div><p id="loginError" class="tiny hidden" role="alert" style="color:#b42318;font-weight:700">Username atau password salah.</p><button type="submit" class="primary full" id="enter">Masuk</button><button type="button" id="resetPassword" class="full" style="margin-top:10px;padding:10px;background:transparent;border:1px solid #cbd5e1;border-radius:9px">Lupa password? Kirim email pemulihan</button><p id="resetMessage" class="tiny" role="status"></p></form><p class="tiny" style="margin-top:16px">Gunakan email dan password yang telah dibuat oleh administrator. Hak akses ditentukan dari profil akun.</p></div></div>
+<div id="app" class="layout hidden"><aside class="sidebar"><div class="brand"><span class="logo">🚚</span><div><strong>TRUCKING<br>INVENTORY</strong><div style="color:#a9bedb;font-size:11px">MANAGEMENT SYSTEM</div></div></div><nav class="nav" id="nav"></nav></aside><main class="main"><div class="top"><div><h2 id="pageTitle">Dashboard</h2><p id="pageSub">Monitoring Inventory Department Trucking</p></div><div class="userbar"><span class="pill" id="roleBadge"></span><button class="secondary" id="logout">Keluar</button></div></div><div class="note">Terhubung ke Supabase. Data barang dan transaksi dimuat dari database. Jika muncul pesan izin akses, periksa kebijakan Row Level Security (RLS) pada Supabase.</div>
+<div id="driverView" class="hidden driver-shell"><div class="driver-hero"><h2 style="margin:0">Halo, <span id="driverGreeting"></span> 👋</h2><p>Silakan catat peminjaman (OUT) atau pengembalian (IN) peralatan trucking.</p></div><div class="panel"><h3>Form Transaksi Barang</h3><form id="driverForm"><div class="field"><label>Jenis Transaksi</label><div class="choice-row"><button type="button" class="choice selected" data-tx="OUT"><strong>↗ OUT</strong><div class="tiny">Peminjaman barang</div></button><button type="button" class="choice" data-tx="IN"><strong>↙ IN</strong><div class="tiny">Pengembalian barang</div></button></div></div><div class="field"><label>Nama Driver</label><input id="driverName" required maxlength="120" placeholder="Tulis nama lengkap driver"></div><div class="field"><label>Nomor Polisi</label><input id="plate" placeholder="Contoh: B 1234 ABC"></div><div id="outFields"><div class="field"><label>Nama Barang</label><select id="outItem"></select></div><div class="field"><label>Jumlah Dipinjam</label><input type="number" id="outQty" min="1" step="1" value="1"></div></div><div id="inFields" class="hidden"><div class="field"><label>Pilih Peminjaman Aktif</label><select id="loanSelect"></select></div><div class="field"><label>Jumlah Dikembalikan</label><input type="number" id="inQty" min="1" step="1" value="1"></div><div class="field"><label>Kondisi Barang</label><select id="condition"><option>Baik</option><option>Rusak</option><option>Perlu Pemeriksaan</option></select></div></div><div class="field"><label>Keterangan (opsional)</label><textarea id="remarks" rows="3" placeholder="Catatan tambahan"></textarea></div><button type="submit" class="primary full">Kirim Transaksi</button><div id="driverMessage"></div></form></div><div class="panel"><h3>Riwayat Pengajuan Saya</h3><div class="table-wrap"><table><thead><tr><th>ID</th><th>Tanggal</th><th>Jenis</th><th>Barang</th><th>Jumlah</th><th>Status</th></tr></thead><tbody id="driverHistory"></tbody></table></div></div></div>
+<div id="adminView" class="hidden"><section id="overview" class="section active"><div class="cards" id="kpis"></div><div class="grid2"><div class="panel"><h3>Stok Inventory</h3><div class="table-wrap"><table><thead><tr><th>Barang</th><th>Stok Tersedia</th><th>Dipinjam</th></tr></thead><tbody id="overviewStock"></tbody></table></div></div><div class="panel"><h3>Transaksi Terbaru</h3><div class="table-wrap"><table><thead><tr><th>Driver</th><th>Barang</th><th>Jenis</th><th>Status</th></tr></thead><tbody id="overviewTx"></tbody></table></div></div></div></section><section id="stock" class="section"><div class="panel"><h3>Monitoring Stok</h3><div class="table-wrap"><table><thead><tr><th>Kode</th><th>Barang</th><th>Stok Awal</th><th>OUT Disetujui</th><th>IN Disetujui</th><th>Stok Tersedia</th><th>Stok Minimum</th><th>Status</th></tr></thead><tbody id="stockRows"></tbody></table></div></div></section><section id="transactions" class="section"><div class="panel"><h3>Verifikasi Transaksi Driver</h3><p class="muted">Setujui hanya setelah jumlah dan kondisi fisik barang diperiksa. Transaksi pending tidak mengubah stok.</p><div class="table-wrap"><table><thead><tr><th>ID / Waktu</th><th>Driver</th><th>Barang</th><th>Jenis</th><th>Jumlah</th><th>Referensi OUT</th><th>Status</th><th>Tindakan</th></tr></thead><tbody id="transactionRows"></tbody></table></div></div></section><section id="loans" class="section"><div class="panel"><h3>Peminjaman Aktif</h3><div class="table-wrap"><table><thead><tr><th>ID OUT</th><th>Driver</th><th>Barang</th><th>Tanggal</th><th>Jumlah OUT</th><th>Sudah IN</th><th>Sisa Pinjam</th></tr></thead><tbody id="loanRows"></tbody></table></div></div></section><section id="reports" class="section"><div class="panel"><h3>Laporan Transaksi IN / OUT</h3><div class="filter-row filters"><div class="field"><label>Dari tanggal</label><input type="date" id="dateFrom"></div><div class="field"><label>Sampai tanggal</label><input type="date" id="dateTo"></div><div class="field"><label>Jenis</label><select id="filterType"><option value="">Semua</option><option>IN</option><option>OUT</option></select></div><div class="field"><label>Status</label><select id="filterStatus"><option value="">Semua</option><option>PENDING</option><option>DISETUJUI</option><option>DITOLAK</option></select></div></div><div class="actions no-print"><button class="primary" id="downloadExcel">Download Excel (.xlsx) – Sheet IN &amp; OUT</button><button class="secondary" id="downloadPdf">Cetak / Simpan PDF</button><span class="tiny">File Excel berisi 2 sheet terpisah: IN dan OUT. Filter tanggal/status diterapkan pada kedua sheet. PDF dibuat melalui dialog cetak browser.</span></div><p class="tiny" id="reportSummary"></p><div class="table-wrap"><table><thead><tr><th>ID</th><th>Tanggal</th><th>Driver</th><th>Barang</th><th>Jenis</th><th>Qty</th><th>Referensi</th><th>Status</th></tr></thead><tbody id="reportRows"></tbody></table></div><p class="tiny">Diperiksa PIC: ____________________ &nbsp;&nbsp; Disetujui SPV: ____________________</p></div></section></div></main></div>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script src="https://cdn.jsdelivr.net/npm/xlsx@0.18.5/dist/xlsx.full.min.js"></script>
+<script>
+(()=>{'use strict';
+const SUPABASE_URL='https://rxhjkthjyofzpcmrdjzv.supabase.co';
+const SUPABASE_ANON_KEY='sb_publishable_y6TOSqvR1T5_W8jaJ_4YOg_CmhmU7rW';
+const db=window.supabase.createClient(SUPABASE_URL,SUPABASE_ANON_KEY);
+let authUser=null, profile=null, role='', user='', driverId='', txType='OUT', page='overview';
+let inventory=[], tx=[], profiles=[];
+const $=id=>document.getElementById(id);
+const escapeHtml=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+const fmt=t=>t?new Date(t).toLocaleString('id-ID'):'-';
+const date=t=>t?new Date(t).toISOString().slice(0,10):'';
+const statusLabel=s=>s==='APPROVED'?'DISETUJUI':s==='REJECTED'?'DITOLAK':s;
+const statusTag=s=>`<span class="tag ${s==='PENDING'?'pending':s==='APPROVED'?'approved':'rejected'}">${escapeHtml(statusLabel(s))}</span>`;
+const typeTag=s=>`<span class="tag ${String(s).toLowerCase()}">${escapeHtml(s)}</span>`;
+const itemById=id=>inventory.find(i=>String(i.id)===String(id));
+const itemName=id=>itemById(id)?.name||'Barang tidak ditemukan';
+const driverName=(id, enteredName='')=>enteredName||profiles.find(p=>p.auth_user_id===id)?.nama_lengkap||profiles.find(p=>p.auth_user_id===id)?.username||(id===driverId?user:String(id||'-').slice(0,8));
+const getApproved=()=>tx.filter(t=>t.status==='APPROVED');
+const qty=(itemId,type)=>getApproved().filter(t=>String(t.item_id)===String(itemId)&&t.type===type).reduce((n,t)=>n+t.qty,0);
+const available=itemId=>{const item=itemById(itemId);return (Number(item?.opening)||0)+qty(itemId,'IN')-qty(itemId,'OUT')};
+const returned=outId=>getApproved().filter(t=>t.type==='IN'&&t.ref===outId).reduce((n,t)=>n+t.qty,0);
+const pendingReturns=outId=>tx.filter(t=>t.type==='IN'&&t.ref===outId&&t.status==='PENDING').reduce((n,t)=>n+t.qty,0);
+const activeLoans=(id=null)=>getApproved().filter(t=>t.type==='OUT'&&(id===null||t.driverId===id)).map(t=>({...t,remaining:t.qty-returned(t.id)})).filter(t=>t.remaining>0);
+const showLoginError=msg=>{$('loginError').textContent=msg;$('loginError').classList.remove('hidden')};
+const showDriverMessage=(msg,isError=false)=>{$('driverMessage').innerHTML=`<div class="status ${isError?'error':''}">${escapeHtml(msg)}</div>`};
+async function loadProfile(auth){
+  let result=await db.from('profiles').select('id,username,nama_lengkap,role,active,auth_user_id').eq('auth_user_id',auth.id).maybeSingle();
+  if(result.error) throw result.error;
+  if(!result.data && auth.email){
+    result=await db.from('profiles').select('id,username,nama_lengkap,role,active,auth_user_id').eq('username',auth.email).maybeSingle();
+    if(result.error) throw result.error;
+  }
+  if(!result.data) throw new Error('Profil akun belum ditemukan. Pastikan profiles.username berisi email akun atau auth_user_id sudah dihubungkan dengan UID Authentication.');
+  if(result.data.active===false) throw new Error('Akun ini tidak aktif. Hubungi administrator.');
+  const r=String(result.data.role||'').toLowerCase();
+  if(!['admin','driver'].includes(r)) throw new Error('Role profil harus bernilai admin atau driver.');
+  return result.data;
+}
+async function loadData(){
+  const [itemsRes,txRes,profilesRes]=await Promise.all([
+    db.from('inventory_items').select('id,kode_barang,nama_barang,satuan,stok_awal,stok_minimum,lokasi_penyimpanan').order('id'),
+    db.from('transactions').select('id,driver_id,nama_driver,item_id,jenis_transaksi,jumlah,referensi_out,kondisi_barang,nomor_polisi,keterangan,status_verifikasi,diverifikasi_oleh,waktu_verifikasi,created_at').order('created_at',{ascending:false}),
+    role==='admin'
+      ? db.from('profiles').select('username,nama_lengkap,role,active,auth_user_id')
+      : Promise.resolve({data:[profile],error:null})
+  ]);
+  if(itemsRes.error) throw itemsRes.error;
+  if(txRes.error) throw txRes.error;
+  if(profilesRes.error) throw profilesRes.error;
+  inventory=(itemsRes.data||[]).map(i=>({id:i.id,code:i.kode_barang||`ITEM-${i.id}`,name:i.nama_barang||'Tanpa nama',unit:i.satuan||'unit',opening:Number(i.stok_awal)||0,min:Number(i.stok_minimum)||0,location:i.lokasi_penyimpanan||''}));
+  profiles=profilesRes.data||[];
+  tx=(txRes.data||[]).map(t=>({id:t.id,time:t.created_at,driverId:t.driver_id,driverName:t.nama_driver||'',itemId:t.item_id,type:t.jenis_transaksi,qty:Number(t.jumlah)||0,ref:t.referensi_out||'',condition:t.kondisi_barang||'',plate:t.nomor_polisi||'',remarks:t.keterangan||'',status:t.status_verifikasi,verifiedBy:t.diverifikasi_oleh||'',verifiedAt:t.waktu_verifikasi||''}));
+}
+async function refresh(){
+  await loadData();
+  render();
+}
+$('loginForm').addEventListener('submit',async e=>{
+  e.preventDefault();
+  $('loginError').classList.add('hidden');
+  const email=$('loginUsername').value.trim().toLowerCase();
+  const password=$('loginPassword').value;
+  const btn=$('enter');btn.disabled=true;btn.textContent='Memeriksa...';
+  try{
+    if(!email.includes('@')) throw new Error('Masukkan email akun Supabase, bukan username demo.');
+    const sign=await db.auth.signInWithPassword({email,password});
+    if(sign.error){if(/invalid login credentials/i.test(sign.error.message||'')) throw new Error('Email atau password tidak cocok dengan akun Supabase Authentication. Pastikan email benar dan password akun Auth (bukan password profil). Jika lupa, gunakan pemulihan password di bawah.');throw sign.error;}
+    authUser=sign.data.user;
+    profile=await loadProfile(authUser);
+    role=String(profile.role).toLowerCase();
+    user=profile.nama_lengkap||profile.username||authUser.email;
+    driverId=authUser.id;
+    await loadData();
+    $('loginPassword').value='';
+    $('login').classList.add('hidden');$('app').classList.remove('hidden');
+    $('roleBadge').textContent=role==='driver'?'DRIVER':'ADMIN / PIC';
+    $('driverView').classList.toggle('hidden',role!=='driver');
+    $('adminView').classList.toggle('hidden',role!=='admin');
+    $('driverName').value='';$('driverGreeting').textContent='Driver';
+    setupNav();render();
+  }catch(err){
+    try{await db.auth.signOut()}catch{}
+    authUser=null;profile=null;role='';user='';driverId='';
+    showLoginError(err.message||'Login gagal. Periksa email, password, dan profil Supabase.');
+    $('loginPassword').value='';
+  }finally{btn.disabled=false;btn.textContent='Masuk'}
+});
+$('resetPassword').onclick=async()=>{
+  const email=$('loginUsername').value.trim().toLowerCase();
+  const msg=$('resetMessage');msg.style.color='#475569';
+  if(!email||!email.includes('@')){msg.textContent='Isi alamat email akun terlebih dahulu.';return}
+  const btn=$('resetPassword');btn.disabled=true;
+  try{
+    const {error}=await db.auth.resetPasswordForEmail(email,{redirectTo:window.location.origin+window.location.pathname});
+    if(error)throw error;
+    msg.textContent='Jika email terdaftar, periksa inbox/spam untuk tautan pemulihan. Administrator mungkin perlu mengatur Redirect URL di Supabase.';
+  }catch(err){msg.style.color='#b42318';msg.textContent='Gagal meminta pemulihan: '+(err.message||'Kesalahan tidak diketahui')}
+  finally{btn.disabled=false}
+};
+// Supabase mengirim PASSWORD_RECOVERY setelah tautan reset dibuka.
+db.auth.onAuthStateChange((event)=>{
+  if(event==='PASSWORD_RECOVERY'){
+    setTimeout(async()=>{
+      const password=window.prompt('Masukkan password baru (minimal 6 karakter):');
+      if(password===null)return;
+      if(password.length<6){alert('Password minimal 6 karakter.');return}
+      const {error}=await db.auth.updateUser({password});
+      alert(error?'Gagal mengganti password: '+error.message:'Password berhasil diubah. Silakan login kembali.');
+      if(!error)await db.auth.signOut();
+    },0);
+  }
+});
+$('logout').onclick=async()=>{
+  await db.auth.signOut();authUser=null;profile=null;role='';user='';driverId='';inventory=[];tx=[];profiles=[];
+  $('loginUsername').value='';$('loginPassword').value='';
+  $('app').classList.add('hidden');$('login').classList.remove('hidden');
+};
+function setupNav(){
+  const nav=$('nav');nav.innerHTML='';
+  if(role==='driver'){
+    const b=document.createElement('button');b.textContent='📝 Input IN / OUT';b.className='active';nav.appendChild(b);
+    $('pageTitle').textContent='Form Driver';$('pageSub').textContent='Peminjaman dan pengembalian peralatan';
+  }else{
+    [['overview','▦ Overview'],['stock','▤ Monitoring Stok'],['transactions','⇄ Transaksi & Verifikasi'],['loans','▣ Peminjaman Aktif'],['reports','⇩ Laporan & Export']].forEach(([id,label])=>{
+      const b=document.createElement('button');b.textContent=label;b.dataset.page=id;
+      b.onclick=()=>{page=id;document.querySelectorAll('#nav button').forEach(x=>x.classList.toggle('active',x===b));document.querySelectorAll('#adminView .section').forEach(x=>x.classList.toggle('active',x.id===id));$('pageTitle').textContent=label.replace(/^[^ ]+ /,'');render()};
+      nav.appendChild(b);
+    });
+    nav.firstChild.classList.add('active');page='overview';
+    document.querySelectorAll('#adminView .section').forEach(x=>x.classList.toggle('active',x.id==='overview'));
+    $('pageTitle').textContent='Overview';$('pageSub').textContent='Monitoring Inventory Department Trucking';
+  }
+}
+function setTxType(v){
+  txType=v;document.querySelectorAll('[data-tx]').forEach(x=>x.classList.toggle('selected',x.dataset.tx===v));
+  $('outFields').classList.toggle('hidden',v!=='OUT');$('inFields').classList.toggle('hidden',v!=='IN');renderLoanOptions();
+}
+document.querySelectorAll('[data-tx]').forEach(b=>b.onclick=()=>setTxType(b.dataset.tx));
+$('driverName').addEventListener('input',()=>{$('driverGreeting').textContent=$('driverName').value.trim()||'Driver'});
+function renderLoanOptions(){
+  const loans=activeLoans(driverId);
+  $('loanSelect').innerHTML=loans.length?loans.map(t=>`<option value="${escapeHtml(t.id)}">${escapeHtml(t.id)} — ${escapeHtml(itemName(t.itemId))} (sisa ${t.remaining})</option>`).join(''):'<option value="">Tidak ada peminjaman aktif</option>';
+}
+function renderItemOptions(){
+  $('outItem').innerHTML=inventory.map(i=>`<option value="${i.id}">${escapeHtml(i.name)}</option>`).join('');
+}
+$('driverForm').onsubmit=async e=>{
+  e.preventDefault();
+  const enteredDriverName=$('driverName').value.trim();
+  if(!enteredDriverName){showDriverMessage('Silakan tulis nama lengkap driver terlebih dahulu.',true);$('driverName').focus();return}
+  const isOut=txType==='OUT';
+  const loan=activeLoans(driverId).find(t=>t.id===$('loanSelect').value);
+  const itemId=isOut?$('outItem').value:loan?.itemId;
+  const amount=Number(isOut?$('outQty').value:$('inQty').value);
+  if(!itemId||!Number.isSafeInteger(amount)||amount<=0){showDriverMessage('Pilih barang dan masukkan jumlah bulat positif.',true);return}
+  if(!isOut&&(!loan||amount>loan.remaining-pendingReturns(loan.id))){showDriverMessage('Jumlah pengembalian melebihi sisa peminjaman yang belum diajukan.',true);return}
+  if(isOut&&amount>available(itemId)){showDriverMessage('Jumlah melebihi stok tersedia saat ini.',true);return}
+  const payload={driver_id:driverId,nama_driver:enteredDriverName,item_id:Number(itemId),jenis_transaksi:txType,jumlah:amount,referensi_out:isOut?null:loan.id,kondisi_barang:isOut?null:$('condition').value,nomor_polisi:$('plate').value.trim()||null,keterangan:$('remarks').value.trim()||null,status_verifikasi:'PENDING'};
+  const btn=$('driverForm').querySelector('button[type="submit"]');btn.disabled=true;btn.textContent='Mengirim...';
+  try{
+    const {error}=await db.from('transactions').insert(payload);
+    if(error) throw error;
+    await refresh();$('remarks').value='';showDriverMessage('Pengajuan berhasil disimpan dan menunggu verifikasi PIC.');
+  }catch(err){showDriverMessage(err.message||'Transaksi gagal disimpan.',true)}
+  finally{btn.disabled=false;btn.textContent='Kirim Transaksi'}
+};
+async function verify(id,decision){
+  if(role!=='admin')return;
+  const t=tx.find(x=>x.id===id);if(!t||t.status!=='PENDING')return;
+  if(decision==='APPROVED'){
+    if(t.type==='OUT'&&t.qty>available(t.itemId)){alert('Tidak dapat disetujui: stok tidak cukup.');return}
+    if(t.type==='IN'){
+      const loan=tx.find(x=>x.id===t.ref&&x.status==='APPROVED'&&x.type==='OUT');
+      if(!loan||loan.driverId!==t.driverId||String(loan.itemId)!==String(t.itemId)||t.qty>loan.qty-returned(loan.id)){alert('Tidak dapat disetujui: referensi atau jumlah pengembalian tidak valid.');return}
+    }
+  }
+  try{
+    const {error}=await db.from('transactions').update({status_verifikasi:decision,diverifikasi_oleh:authUser.id,waktu_verifikasi:new Date().toISOString()}).eq('id',id).eq('status_verifikasi','PENDING');
+    if(error)throw error;
+    await refresh();
+  }catch(err){alert('Verifikasi gagal: '+(err.message||'Periksa izin RLS dan trigger database.'))}
+}
+function render(){
+  if(role==='driver'){
+    renderLoanOptions();renderItemOptions();
+    $('driverHistory').innerHTML=tx.filter(t=>t.driverId===driverId).slice(0,30).map(t=>`<tr><td>${escapeHtml(t.id)}</td><td>${fmt(t.time)}</td><td>${typeTag(t.type)}</td><td>${escapeHtml(itemName(t.itemId))}</td><td>${t.qty}</td><td>${statusTag(t.status)}</td></tr>`).join('')||'<tr><td colspan="6" class="empty">Belum ada transaksi</td></tr>';
+    return;
+  }
+  const loans=activeLoans();
+  const kpis=[['Jenis Barang',inventory.length],['Stok Tersedia',inventory.reduce((n,i)=>n+available(i.id),0)],['Sedang Dipinjam',loans.reduce((n,t)=>n+t.remaining,0)],['Menunggu Verifikasi',tx.filter(t=>t.status==='PENDING').length]];
+  $('kpis').innerHTML=kpis.map(([label,value])=>`<div class="card"><div class="label">${label}</div><div class="value">${value}</div></div>`).join('');
+  $('overviewStock').innerHTML=inventory.map(i=>`<tr><td>${escapeHtml(i.name)}</td><td>${available(i.id)}</td><td>${loans.filter(t=>String(t.itemId)===String(i.id)).reduce((n,t)=>n+t.remaining,0)}</td></tr>`).join('');
+  $('overviewTx').innerHTML=tx.slice(0,8).map(t=>`<tr><td>${escapeHtml(driverName(t.driverId,t.driverName))}</td><td>${escapeHtml(itemName(t.itemId))}</td><td>${typeTag(t.type)}</td><td>${statusTag(t.status)}</td></tr>`).join('')||'<tr><td colspan="4" class="empty">Belum ada transaksi</td></tr>';
+  $('stockRows').innerHTML=inventory.map(i=>{const a=available(i.id);return `<tr><td>${escapeHtml(i.code)}</td><td>${escapeHtml(i.name)}</td><td>${i.opening}</td><td>${qty(i.id,'OUT')}</td><td>${qty(i.id,'IN')}</td><td><strong>${a}</strong></td><td>${i.min}</td><td><span class="tag ${a<=i.min?'rejected':'approved'}">${a<=i.min?'STOK RENDAH':'AMAN'}</span></td></tr>`}).join('');
+  $('transactionRows').innerHTML=tx.map(t=>`<tr><td>${escapeHtml(t.id)}<div class="tiny">${fmt(t.time)}</div></td><td>${escapeHtml(driverName(t.driverId,t.driverName))}<div class="tiny">${escapeHtml(t.driverId)}</div></td><td>${escapeHtml(itemName(t.itemId))}</td><td>${typeTag(t.type)}</td><td>${t.qty}</td><td>${escapeHtml(t.ref||'-')}</td><td>${statusTag(t.status)}</td><td>${t.status==='PENDING'?`<button class="smallbtn" data-approve="${escapeHtml(t.id)}">Setujui</button><button class="smallbtn reject" data-reject="${escapeHtml(t.id)}">Tolak</button>`:'—'}</td></tr>`).join('')||'<tr><td colspan="8" class="empty">Belum ada transaksi</td></tr>';
+  $('loanRows').innerHTML=loans.map(t=>`<tr><td>${escapeHtml(t.id)}</td><td>${escapeHtml(driverName(t.driverId,t.driverName))}</td><td>${escapeHtml(itemName(t.itemId))}</td><td>${fmt(t.time)}</td><td>${t.qty}</td><td>${returned(t.id)}</td><td><strong>${t.remaining}</strong></td></tr>`).join('')||'<tr><td colspan="7" class="empty">Tidak ada peminjaman aktif</td></tr>';
+  renderReports();
+}
+$('transactionRows').addEventListener('click',e=>{
+  const b=e.target.closest('button');if(!b)return;
+  if(b.dataset.approve)verify(b.dataset.approve,'APPROVED');
+  if(b.dataset.reject)verify(b.dataset.reject,'REJECTED');
+});
+function filtered(){
+  const from=$('dateFrom').value,to=$('dateTo').value,type=$('filterType').value,status=$('filterStatus').value;
+  return tx.filter(t=>(!from||date(t.time)>=from)&&(!to||date(t.time)<=to)&&(!type||t.type===type)&&(!status||t.status===status));
+}
+function renderReports(){
+  const data=filtered();
+  $('reportSummary').textContent=`${data.length} transaksi | OUT: ${data.filter(t=>t.type==='OUT').length} | IN: ${data.filter(t=>t.type==='IN').length}`;
+  $('reportRows').innerHTML=data.map(t=>`<tr><td>${escapeHtml(t.id)}</td><td>${fmt(t.time)}</td><td>${escapeHtml(driverName(t.driverId,t.driverName))}</td><td>${escapeHtml(itemName(t.itemId))}</td><td>${t.type}</td><td>${t.qty}</td><td>${escapeHtml(t.ref||'-')}</td><td>${escapeHtml(statusLabel(t.status))}</td></tr>`).join('')||'<tr><td colspan="8" class="empty">Tidak ada data sesuai filter</td></tr>';
+}
+['dateFrom','dateTo','filterType','filterStatus'].forEach(id=>$(id).addEventListener('change',renderReports));
+function download(content,name,mime){
+  const blob=new Blob([content],{type:mime});const url=URL.createObjectURL(blob),a=document.createElement('a');
+  a.href=url;a.download=name;document.body.appendChild(a);a.click();a.remove();setTimeout(()=>URL.revokeObjectURL(url),1000);
+}
+$('downloadExcel').onclick=()=>{
+  if(role!=='admin')return;
+  if(!window.XLSX){alert('Fitur Excel belum termuat. Periksa koneksi internet, lalu muat ulang halaman.');return;}
+  // Untuk workbook yang selalu memiliki dua sheet, filter Jenis di layar tidak diterapkan.
+  // Filter tanggal dan status tetap diterapkan agar kedua sheet memakai rentang laporan yang sama.
+  const from=$('dateFrom').value,to=$('dateTo').value,status=$('filterStatus').value;
+  const data=tx.filter(t=>(!from||date(t.time)>=from)&&(!to||date(t.time)<=to)&&(!status||t.status===status));
+  const headers=['ID Transaksi','Tanggal','ID Driver','Nama Driver','Nomor Polisi','Jenis','Kode Barang','Nama Barang','Jumlah','Referensi OUT','Kondisi Barang','Status','Verifikator','Waktu Verifikasi','Keterangan'];
+  const toRows=list=>list.map(t=>({
+    'ID Transaksi':t.id||'', 'Tanggal':fmt(t.time), 'ID Driver':t.driverId||'',
+    'Nama Driver':driverName(t.driverId,t.driverName), 'Nomor Polisi':t.plate||'',
+    'Jenis':t.type, 'Kode Barang':itemById(t.itemId)?.code||'', 'Nama Barang':itemName(t.itemId),
+    'Jumlah':Number(t.qty)||0, 'Referensi OUT':t.ref||'', 'Kondisi Barang':t.condition||'',
+    'Status':statusLabel(t.status), 'Verifikator':t.verifiedBy||'',
+    'Waktu Verifikasi':t.verifiedAt?fmt(t.verifiedAt):'', 'Keterangan':t.remarks||''
+  }));
+  const wb=XLSX.utils.book_new();
+  [['IN',data.filter(t=>t.type==='IN')],['OUT',data.filter(t=>t.type==='OUT')]].forEach(([name,list])=>{
+    const ws=XLSX.utils.json_to_sheet(toRows(list),{header:headers});
+    ws['!cols']=[{wch:38},{wch:21},{wch:38},{wch:24},{wch:16},{wch:10},{wch:16},{wch:24},{wch:10},{wch:38},{wch:20},{wch:14},{wch:38},{wch:21},{wch:35}];
+    ws['!autofilter']={ref:XLSX.utils.encode_range({s:{r:0,c:0},e:{r:Math.max(list.length,1),c:headers.length-1}})};
+    ws['!freeze']={xSplit:0,ySplit:1};
+    XLSX.utils.book_append_sheet(wb,ws,name);
+  });
+  XLSX.writeFile(wb,'Laporan_Transaksi_IN_OUT_'+new Date().toISOString().slice(0,10)+'.xlsx');
+};
+$('downloadPdf').onclick=()=>{
+  if(role!=='admin')return;
+  const current=page;document.querySelectorAll('#adminView .section').forEach(x=>x.classList.toggle('active',x.id==='reports'));
+  window.print();document.querySelectorAll('#adminView .section').forEach(x=>x.classList.toggle('active',x.id===current));
+};
+})();
+</script></body></html>
